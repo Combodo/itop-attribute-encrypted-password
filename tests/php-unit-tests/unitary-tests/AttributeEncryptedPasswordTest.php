@@ -2,6 +2,7 @@
 
 namespace Combodo\iTop\Test\UnitTest\Core;
 
+use CMDBChangeOpSetAttributeEncryptedPassword;
 use Combodo\iTop\ItopAttributeEncryptedPassword\Model\ormEncryptedPassword;
 use Combodo\iTop\Test\UnitTest\ItopCustomDatamodelTestCase;
 use MetaModel;
@@ -51,6 +52,15 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken2::class);
 		$oObject->Set('token', $sValue);
 		$this->assertEquals($bExpected, $oObject->HasAValue('token'));
+	}
+
+	public function testSettingWrongPasswordTypeShouldFail()
+	{
+		$oChange = MetaModel::NewObject(CMDBChangeOpSetAttributeEncryptedPassword::class);
+		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken2::class);
+		$oObject->Set('token', $oChange);
+		$oToken = $oObject->Get('token');
+		$this->assertEquals($oChange, $oToken->GetPassword());
 	}
 
 	public function testHasAValue_hiddenUsablePassword2()
