@@ -9,5 +9,7 @@
  */
 
 Dict::Add('FR FR', 'French', 'Français', [
-	// Dictionary entries go here
+	'Core:AttributeEncryptedPassword' => 'Mot de passe chiffré',
+	'Core:AttributeEncryptedPassword+' => 'Mot de passe chiffré avec une clé locale',
+	'Core:AttributeEncryptedPassword:WrongType' => 'Mauvais type fourni (string ou ormEncryptedPassword attendus)',
 ]);

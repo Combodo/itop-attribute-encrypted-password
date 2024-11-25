@@ -10,7 +10,6 @@ use Combodo\iTop\ItopAttributeEncryptedPassword\Model\ormEncryptedPassword;
 class AttributeEncryptedPassword extends AttributeEncryptedString implements iAttributeNoGroupBy
 {
 	const SEARCH_WIDGET_TYPE = self::SEARCH_WIDGET_TYPE_RAW;
-	const STARS = '*****';
 
 	/**
 	 * @param string $sCode
@@ -76,10 +75,10 @@ class AttributeEncryptedPassword extends AttributeEncryptedString implements iAt
 		}
 
 		if (! is_string($proposedValue)) {
-			throw new \CoreException("Wrong type provided (string or ormEncryptedPassword accepted)");
+			throw new \CoreException(Dict::S('Core:AttributeEncryptedPassword:WrongType'));
 		}
 
-		if ($proposedValue === self::STARS){
+		if ($proposedValue === ormEncryptedPassword::STARS){
 			//when editing CMDB object without modifying current field we need to keep previous pwd value
 			return $oHostObj->Get($this->m_sCode);
 		}
@@ -197,7 +196,7 @@ class AttributeEncryptedPassword extends AttributeEncryptedString implements iAt
 	public function GetValueLabel($sValue, $oHostObj = null)
 	{
 		// Don't display anything in "group by" reports
-		return self::STARS;
+		return ormEncryptedPassword::STARS;
 	}
 
 	/**

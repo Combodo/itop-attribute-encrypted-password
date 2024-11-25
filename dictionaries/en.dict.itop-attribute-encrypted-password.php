@@ -9,5 +9,7 @@
  */
 
 Dict::Add('EN US', 'English', 'English', [
-	// Dictionary entries go here
+	'Core:AttributeEncryptedPassword' => 'Encrypted password',
+	'Core:AttributeEncryptedPassword+' => 'Password encrypted with a local key',
+	'Core:AttributeEncryptedPassword:WrongType' => 'Wrong type provided (string or ormEncryptedPassword accepted)',
 ]);

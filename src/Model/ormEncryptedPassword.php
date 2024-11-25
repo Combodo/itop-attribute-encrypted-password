@@ -14,6 +14,7 @@ use utils;
 
 class ormEncryptedPassword
 {
+	public const STARS = '*****';
 	private string $sEncryptedPassword;
 
 
@@ -49,7 +50,7 @@ class ormEncryptedPassword
 	 */
 	public function __toString()
 	{
-		return '*****'; // Password can not be read
+		return self::STARS; // Password can not be read
 	}
 
 	public function HasAValue(): bool
@@ -64,7 +65,7 @@ class ormEncryptedPassword
 	 */
 	public function GetAsHTML(): string
 	{
-		return '*****'; // Password can not be read
+		return self::STARS; // Password can not be read
 	}
 
 	/**
@@ -96,7 +97,7 @@ class ormEncryptedPassword
 
 	public function GetDisplayValue(): string
 	{
-		return '*****';
+		return self::STARS;
 	}
 
 }

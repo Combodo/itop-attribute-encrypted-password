@@ -60,8 +60,6 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken2::class);
 		$this->expectException(\CoreException::class);
 		$oObject->Set('token', $oChange);
-		//$oToken = $oObject->Get('token');
-		//$this->assertEquals($oChange, $oToken->GetPassword());
 	}
 
 	public function testHasAValue_hiddenUsablePassword2()
@@ -125,7 +123,7 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 		$oRemoteiTopConnectionToken2 = $this->CreateRemoteiTopConnectionToken2();
 		$oRemoteiTopConnectionToken2 = $this->updateObject(RemoteiTopConnectionToken2::class, $oRemoteiTopConnectionToken2->GetKey(),
 			[
-				'token' => \AttributeEncryptedPassword::STARS,
+				'token' => ormEncryptedPassword::STARS,
 			]
 		);
 
