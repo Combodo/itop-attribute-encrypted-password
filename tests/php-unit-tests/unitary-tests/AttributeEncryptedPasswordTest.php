@@ -58,9 +58,10 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 	{
 		$oChange = MetaModel::NewObject(CMDBChangeOpSetAttributeEncryptedPassword::class);
 		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken2::class);
+		$this->expectException(\CoreException::class);
 		$oObject->Set('token', $oChange);
-		$oToken = $oObject->Get('token');
-		$this->assertEquals($oChange, $oToken->GetPassword());
+		//$oToken = $oObject->Get('token');
+		//$this->assertEquals($oChange, $oToken->GetPassword());
 	}
 
 	public function testHasAValue_hiddenUsablePassword2()
