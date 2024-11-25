@@ -118,4 +118,19 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 
 		$oRemoteiTopConnectionToken2->Reload();
 	}
+
+	public function testObjectUpdate_StarsAreIgnored()
+	{
+		$oRemoteiTopConnectionToken2 = $this->CreateRemoteiTopConnectionToken2();
+		$oRemoteiTopConnectionToken2 = $this->updateObject(RemoteiTopConnectionToken2::class, $oRemoteiTopConnectionToken2->GetKey(),
+			[
+				'token' => \AttributeEncryptedPassword::STARS,
+			]
+		);
+
+		$oToken = $oRemoteiTopConnectionToken2->Get('token');
+		$this->assertEquals('gabuzomeu', $oToken->GetPassword());
+
+		$oRemoteiTopConnectionToken2->Reload();
+	}
 }
