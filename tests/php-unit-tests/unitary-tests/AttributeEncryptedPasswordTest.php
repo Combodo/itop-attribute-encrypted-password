@@ -18,8 +18,8 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 	protected function setUp(): void
 	{
 		parent::setUp();
-		$this->RequireOnceItopFile('env-php-unit-tests/itop-attribute-encrypted-password/vendor/autoload.php');
-		$this->RequireOnceItopFile('env-php-unit-tests/itop-attribute-encrypted-password/src/Attribute/AttributeEncryptedPassword.php');
+		$this->RequireOnceItopFile('env-production/itop-attribute-encrypted-password/vendor/autoload.php');
+		$this->RequireOnceItopFile('env-production/itop-attribute-encrypted-password/src/Attribute/AttributeEncryptedPassword.php');
 	}
 
 	public function GetDatamodelDeltaAbsPath(): string
