@@ -74,11 +74,11 @@ class AttributeEncryptedPassword extends AttributeEncryptedString implements iAt
 			return clone $proposedValue;
 		}
 
-		if (! is_string($proposedValue)) {
+		if (!is_string($proposedValue)) {
 			throw new \CoreException(Dict::S('Core:AttributeEncryptedPassword:WrongType'));
 		}
 
-		if ($proposedValue === ormEncryptedPassword::STARS){
+		if ($proposedValue === ormEncryptedPassword::STARS) {
 			//when editing CMDB object without modifying current field we need to keep previous pwd value
 			return $oHostObj->Get($this->m_sCode);
 		}

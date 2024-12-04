@@ -70,6 +70,7 @@ class ormEncryptedPassword
 
 	/**
 	 * Get decrypted password
+	 *
 	 * @return string
 	 * @throws \Combodo\iTop\ItopAttributeEncryptedPassword\Helper\AttributeEncryptedPasswordException
 	 */

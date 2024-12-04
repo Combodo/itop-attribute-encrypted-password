@@ -5,10 +5,10 @@
 $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
-return array(
-    'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordException' => $baseDir . '/src/Helper/AttributeEncryptedPasswordException.php',
-    'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordHelper' => $baseDir . '/src/Helper/AttributeEncryptedPasswordHelper.php',
-    'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordLog' => $baseDir . '/src/Helper/AttributeEncryptedPasswordLog.php',
-    'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Model\\ormEncryptedPassword' => $baseDir . '/src/Model/ormEncryptedPassword.php',
-    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-);
+return [
+	'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordException' => $baseDir.'/src/Helper/AttributeEncryptedPasswordException.php',
+	'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordHelper' => $baseDir.'/src/Helper/AttributeEncryptedPasswordHelper.php',
+	'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordLog' => $baseDir.'/src/Helper/AttributeEncryptedPasswordLog.php',
+	'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Model\\ormEncryptedPassword' => $baseDir.'/src/Model/ormEncryptedPassword.php',
+	'Composer\\InstalledVersions' => $vendorDir.'/composer/InstalledVersions.php',
+];

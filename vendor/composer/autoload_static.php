@@ -6,35 +6,35 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit95a1aeae22f28212f64d406babfc3627
 {
-    public static $prefixLengthsPsr4 = array (
-        'C' => 
-        array (
-            'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' => 44,
-        ),
-    );
+	public static $prefixLengthsPsr4 = [
+		'C' =>
+			[
+				'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' => 44,
+			],
+	];
 
-    public static $prefixDirsPsr4 = array (
-        'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
-    );
+	public static $prefixDirsPsr4 = [
+		'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' =>
+			[
+				0 => __DIR__.'/../..'.'/src',
+			],
+	];
 
-    public static $classMap = array (
-        'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordException' => __DIR__ . '/../..' . '/src/Helper/AttributeEncryptedPasswordException.php',
-        'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordHelper' => __DIR__ . '/../..' . '/src/Helper/AttributeEncryptedPasswordHelper.php',
-        'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordLog' => __DIR__ . '/../..' . '/src/Helper/AttributeEncryptedPasswordLog.php',
-        'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Model\\ormEncryptedPassword' => __DIR__ . '/../..' . '/src/Model/ormEncryptedPassword.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-    );
+	public static $classMap = [
+		'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordException' => __DIR__.'/../..'.'/src/Helper/AttributeEncryptedPasswordException.php',
+		'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordHelper' => __DIR__.'/../..'.'/src/Helper/AttributeEncryptedPasswordHelper.php',
+		'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Helper\\AttributeEncryptedPasswordLog' => __DIR__.'/../..'.'/src/Helper/AttributeEncryptedPasswordLog.php',
+		'Combodo\\iTop\\ItopAttributeEncryptedPassword\\Model\\ormEncryptedPassword' => __DIR__.'/../..'.'/src/Model/ormEncryptedPassword.php',
+		'Composer\\InstalledVersions' => __DIR__.'/..'.'/composer/InstalledVersions.php',
+	];
 
-    public static function getInitializer(ClassLoader $loader)
-    {
-        return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$classMap;
+	public static function getInitializer(ClassLoader $loader)
+	{
+		return \Closure::bind(function () use ($loader) {
+			$loader->prefixLengthsPsr4 = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$prefixLengthsPsr4;
+			$loader->prefixDirsPsr4 = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$prefixDirsPsr4;
+			$loader->classMap = ComposerStaticInit95a1aeae22f28212f64d406babfc3627::$classMap;
 
-        }, null, ClassLoader::class);
-    }
+		}, null, ClassLoader::class);
+	}
 }

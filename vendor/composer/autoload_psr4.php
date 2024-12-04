@@ -5,6 +5,6 @@
 $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
-return array(
-    'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' => array($baseDir . '/src'),
-);
+return [
+	'Combodo\\iTop\\ItopAttributeEncryptedPassword\\' => [$baseDir.'/src'],
+];
