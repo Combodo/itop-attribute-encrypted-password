@@ -17,7 +17,6 @@ class ormEncryptedPasswordTest extends ItopDataTestCase
 	protected function setUp(): void
 	{
 		parent::setUp();
-		$this->RequireOnceItopFile('env-php-unit-tests/itop-attribute-encrypted-password/vendor/autoload.php');
 	}
 
 	public function testCreatingEmptyPasswordRemainsEmpty()
