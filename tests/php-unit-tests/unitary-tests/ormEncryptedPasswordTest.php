@@ -4,7 +4,7 @@
  * @license     http://opensource.org/licenses/AGPL-3.0
  */
 
-namespace Combodo\iTop\Test\UnitTest\Core;
+namespace Combodo\iTop\Test\UnitTest\ItopAttributeEncryptedPassword;
 
 use Combodo\iTop\ItopAttributeEncryptedPassword\Helper\AttributeEncryptedPasswordException;
 use Combodo\iTop\ItopAttributeEncryptedPassword\Model\ormEncryptedPassword;

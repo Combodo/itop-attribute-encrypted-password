@@ -1,6 +1,6 @@
 <?php
 
-namespace Combodo\iTop\Test\UnitTest\Core;
+namespace Combodo\iTop\Test\UnitTest\ItopAttributeEncryptedPassword;
 
 use AttributeDefinition;
 use CMDBChangeOpSetAttributeEncryptedPassword;
