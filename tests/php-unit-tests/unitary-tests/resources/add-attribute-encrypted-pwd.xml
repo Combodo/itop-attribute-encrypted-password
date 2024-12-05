@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
   <classes>
-    <class id="RemoteiTopConnectionToken" _created_in="itop-attribute-encrypted-password" _delta="define">
+    <class id="ObjectTestForEncryptedPassword" _created_in="itop-attribute-encrypted-password" _delta="define">
       <parent>cmdbAbstractObject</parent>
       <properties>
         <category>grant_by_profile,bizmodel,searchable</category>

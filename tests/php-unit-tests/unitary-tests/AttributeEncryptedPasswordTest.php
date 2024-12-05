@@ -7,7 +7,7 @@ use CMDBChangeOpSetAttributeEncryptedPassword;
 use Combodo\iTop\ItopAttributeEncryptedPassword\Model\ormEncryptedPassword;
 use Combodo\iTop\Test\UnitTest\ItopCustomDatamodelTestCase;
 use MetaModel;
-use RemoteiTopConnectionToken;
+use ObjectTestForEncryptedPassword;
 
 
 class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
@@ -31,12 +31,12 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 	public function testHasAValue_Default()
 	{
 		echo MetaModel::GetEnvironment();
-		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken::class);
+		$oObject = MetaModel::NewObject(ObjectTestForEncryptedPassword::class);
 
 		// Test attribute without a value yet
 		$this->assertEquals(false, $oObject->HasAValue('token'));
 
-		$oAttributeDefinition = MetaModel::GetAttributeDef(RemoteiTopConnectionToken::class, 'token');
+		$oAttributeDefinition = MetaModel::GetAttributeDef(ObjectTestForEncryptedPassword::class, 'token');
 		$this->assertEquals(true, $oAttributeDefinition->IsNull($oObject->Get('token')));
 	}
 
@@ -53,7 +53,7 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 	 */
 	public function testHasAValue_hiddenUsablePassword($sValue, bool $bExpected)
 	{
-		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken::class);
+		$oObject = MetaModel::NewObject(ObjectTestForEncryptedPassword::class);
 		$oObject->Set('token', $sValue);
 		$this->assertEquals($bExpected, $oObject->HasAValue('token'));
 	}
@@ -61,14 +61,14 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 	public function testSettingWrongPasswordTypeShouldFail()
 	{
 		$oChange = MetaModel::NewObject(CMDBChangeOpSetAttributeEncryptedPassword::class);
-		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken::class);
+		$oObject = MetaModel::NewObject(ObjectTestForEncryptedPassword::class);
 		$this->expectException(\CoreException::class);
 		$oObject->Set('token', $oChange);
 	}
 
 	public function testHasAValue_hiddenUsablePassword2()
 	{
-		$oObject = MetaModel::NewObject(RemoteiTopConnectionToken::class);
+		$oObject = MetaModel::NewObject(ObjectTestForEncryptedPassword::class);
 		$oPassword = new ormEncryptedPassword('');
 		$oObject->Set('token', $oPassword);
 		$this->assertEquals(false, $oObject->HasAValue('token'));
@@ -77,39 +77,39 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 		$this->assertEquals(true, $oObject->HasAValue('token'));
 	}
 
-	private function CreateRemoteiTopConnectionToken2(): RemoteiTopConnectionToken
+	private function CreateObjectTestForEncryptedPassword(): ObjectTestForEncryptedPassword
 	{
 		//$oRemoteApplicationType = $this->createObject(\RemoteApplicationType::class, ['name'=> 'toto']);
 
-		/** @var RemoteiTopConnectionToken $oRemoteiTopConnectionToken2 */
-		$oRemoteiTopConnectionToken2 = $this->createObject(RemoteiTopConnectionToken::class,
+		/** @var ObjectTestForEncryptedPassword $oObjectTestForEncryptedPassword */
+		$oObjectTestForEncryptedPassword = $this->createObject(ObjectTestForEncryptedPassword::class,
 			[
 				'token' => 'gabuzomeu',
 				'name' => 'blabla.fr',
 			]
 		);
 
-		return $oRemoteiTopConnectionToken2;
+		return $oObjectTestForEncryptedPassword;
 	}
 
 	public function testObjectCreation()
 	{
-		$oRemoteiTopConnectionToken2 = $this->CreateRemoteiTopConnectionToken2();
+		$oObjectTestForEncryptedPassword = $this->CreateObjectTestForEncryptedPassword();
 
-		$oAttributeDefinition = MetaModel::GetAttributeDef(RemoteiTopConnectionToken::class, 'token');
-		$oOrmEncryptedPwd = $oRemoteiTopConnectionToken2->Get('token');
+		$oAttributeDefinition = MetaModel::GetAttributeDef(ObjectTestForEncryptedPassword::class, 'token');
+		$oOrmEncryptedPwd = $oObjectTestForEncryptedPassword->Get('token');
 		$this->assertEquals(ormEncryptedPassword::class, get_class($oOrmEncryptedPwd));
 
 		$this->assertEquals('*****', $oOrmEncryptedPwd->GetDisplayValue());
 		$this->assertEquals('*****', $oAttributeDefinition->GetForJSON($oOrmEncryptedPwd));
 		$this->assertEquals('*****', $oAttributeDefinition->Fingerprint($oOrmEncryptedPwd)); // used to compare linksets
-		$this->assertEquals('*****', $oRemoteiTopConnectionToken2->GetEditValue('token'));
-		$this->assertEquals('*****', $oRemoteiTopConnectionToken2->GetAsHTML('token'));
-		$this->assertEquals('', $oRemoteiTopConnectionToken2->GetAsCSV('token'));
-		$this->assertEquals('', $oRemoteiTopConnectionToken2->GetAsXML('token'));
-		$this->assertEquals('*****', $oRemoteiTopConnectionToken2->GetForTemplate('token'));
-		$this->assertEquals('*****', $oRemoteiTopConnectionToken2->GetForTemplate('html(token)'));
-		$this->assertEquals('*****', $oRemoteiTopConnectionToken2->GetForTemplate('text(token)'));
+		$this->assertEquals('*****', $oObjectTestForEncryptedPassword->GetEditValue('token'));
+		$this->assertEquals('*****', $oObjectTestForEncryptedPassword->GetAsHTML('token'));
+		$this->assertEquals('', $oObjectTestForEncryptedPassword->GetAsCSV('token'));
+		$this->assertEquals('', $oObjectTestForEncryptedPassword->GetAsXML('token'));
+		$this->assertEquals('*****', $oObjectTestForEncryptedPassword->GetForTemplate('token'));
+		$this->assertEquals('*****', $oObjectTestForEncryptedPassword->GetForTemplate('html(token)'));
+		$this->assertEquals('*****', $oObjectTestForEncryptedPassword->GetForTemplate('text(token)'));
 		$this->assertEquals('*****', (string)$oOrmEncryptedPwd);
 
 		$this->assertEquals('gabuzomeu', $oOrmEncryptedPwd->GetPassword());
@@ -117,37 +117,37 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 
 	public function testObjectUpdate()
 	{
-		$oRemoteiTopConnectionToken2 = $this->CreateRemoteiTopConnectionToken2();
-		$oRemoteiTopConnectionToken2 = $this->updateObject(RemoteiTopConnectionToken::class, $oRemoteiTopConnectionToken2->GetKey(),
+		$oObjectTestForEncryptedPassword = $this->CreateObjectTestForEncryptedPassword();
+		$oObjectTestForEncryptedPassword = $this->updateObject(ObjectTestForEncryptedPassword::class, $oObjectTestForEncryptedPassword->GetKey(),
 			[
 				'token' => 'gabuzomeu2',
 			]
 		);
 
-		$oToken = $oRemoteiTopConnectionToken2->Get('token');
+		$oToken = $oObjectTestForEncryptedPassword->Get('token');
 		$this->assertEquals('gabuzomeu2', $oToken->GetPassword());
 
-		$oRemoteiTopConnectionToken2->Reload();
+		$oObjectTestForEncryptedPassword->Reload();
 	}
 
 	public function testObjectUpdate_StarsAreIgnored()
 	{
-		$oRemoteiTopConnectionToken2 = $this->CreateRemoteiTopConnectionToken2();
-		$oRemoteiTopConnectionToken2 = $this->updateObject(RemoteiTopConnectionToken::class, $oRemoteiTopConnectionToken2->GetKey(),
+		$oObjectTestForEncryptedPassword = $this->CreateObjectTestForEncryptedPassword();
+		$oObjectTestForEncryptedPassword = $this->updateObject(ObjectTestForEncryptedPassword::class, $oObjectTestForEncryptedPassword->GetKey(),
 			[
 				'token' => ormEncryptedPassword::STARS,
 			]
 		);
 
-		$oToken = $oRemoteiTopConnectionToken2->Get('token');
+		$oToken = $oObjectTestForEncryptedPassword->Get('token');
 		$this->assertEquals('gabuzomeu', $oToken->GetPassword());
 
-		$oRemoteiTopConnectionToken2->Reload();
+		$oObjectTestForEncryptedPassword->Reload();
 	}
 
 	public function testEquals()
 	{
-		$oAttributeDefinition = MetaModel::GetAttributeDef(RemoteiTopConnectionToken::class, 'token');
+		$oAttributeDefinition = MetaModel::GetAttributeDef(ObjectTestForEncryptedPassword::class, 'token');
 		$oOrmEncryptedPwd = new ormEncryptedPassword('gabuzomeu');
 		$oOrmEncryptedPwd2 = new ormEncryptedPassword('gabuzomeu');
 		$this->assertTrue( $oAttributeDefinition->Equals($oOrmEncryptedPwd, $oOrmEncryptedPwd2));
@@ -157,7 +157,7 @@ class AttributeEncryptedPasswordTest extends ItopCustomDatamodelTestCase
 
 	public function testIsSearchable()
 	{
-		$oAttributeDefinition = MetaModel::GetAttributeDef(RemoteiTopConnectionToken::class, 'token');
+		$oAttributeDefinition = MetaModel::GetAttributeDef(ObjectTestForEncryptedPassword::class, 'token');
 		$this->assertFalse($oAttributeDefinition->IsSearchable());
 
 		$this->assertEquals(AttributeDefinition::SEARCH_WIDGET_TYPE_RAW, $oAttributeDefinition->GetSearchType());
