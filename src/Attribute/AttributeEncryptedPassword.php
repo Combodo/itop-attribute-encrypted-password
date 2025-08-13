@@ -10,6 +10,8 @@ use Combodo\iTop\ItopAttributeEncryptedPassword\Model\ormEncryptedPassword;
 class AttributeEncryptedPassword extends AttributeEncryptedString implements iAttributeNoGroupBy
 {
 	const SEARCH_WIDGET_TYPE = self::SEARCH_WIDGET_TYPE_RAW;
+	const FORMAT_TYPE_STRING = 'string';
+	const FORMAT_TYPE_TEXT = 'text';
 
 	/**
 	 * @param string $sCode
@@ -30,7 +32,19 @@ class AttributeEncryptedPassword extends AttributeEncryptedString implements iAt
 
 	public function GetEditClass()
 	{
-		return 'Encrypted Password';
+		return $this->GetFormat() === self::FORMAT_TYPE_TEXT ? 'Text' : 'String';
+	}
+
+	public function GetFormat()
+	{
+		return $this->GetOptional('format', self::FORMAT_TYPE_STRING);
+	}
+	public function GetWidth() {
+		return $this->GetOptional('width', '');
+	}
+
+	public function GetHeight() {
+		return $this->GetOptional('height', '');
 	}
 
 	public static function IsBasedOnDBColumns()
