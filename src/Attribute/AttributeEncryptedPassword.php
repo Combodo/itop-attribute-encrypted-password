@@ -62,7 +62,7 @@ class AttributeEncryptedPassword extends AttributeEncryptedString implements iAt
 		return true;
 	}
 
-	public function GetDefaultValue(DBObject $oHostObject = null)
+	public function GetDefaultValue(?DBObject $oHostObject = null)
 	{
 		return '';
 	}
